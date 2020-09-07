@@ -22,8 +22,12 @@
             </a-input-password>
           </a-form-item>
 
-          <a-form-item>
+          <!-- <a-form-item>
             <image-captcha ref="vertifyCode" :width="100" :height="38"></image-captcha>
+          </a-form-item> -->
+
+          <a-form-item>
+            <slide-captcha status="status"></slide-captcha>
           </a-form-item>
 
         </a-tab-pane>
@@ -82,12 +86,14 @@ import md5 from 'md5'
 import TwoStepCaptcha from '@/components/tools/TwoStepCaptcha'
 import { mapActions } from 'vuex'
 import { timeFix } from '@/utils/util'
-import { getSmsCaptcha, get2step } from '@/api/login'
+import { getSmsCaptcha, ScrollbarCaptcha, get2step } from '@/api/login'
 import ImageCaptcha from '@/components/tools/ImageCaptcha'
+import SlideCaptcha from '@/components/tools/SlideCaptcha'
 export default {
   components: {
     TwoStepCaptcha,
-    ImageCaptcha
+    ImageCaptcha,
+    SlideCaptcha
   },
   data () {
     return {
@@ -137,7 +143,6 @@ export default {
     },
     handleSubmit (e) {
       e.preventDefault()
-      console.log('获取验证码--------', this.customActiveKey)
       let vertify = this.$refs.vertifyCode.checkInput();
       if (this.customActiveKey == 'tab1') {
         switch (vertify) {
@@ -163,7 +168,6 @@ export default {
 
         validateFields(validateFieldsKey, { force: true }, (err, values) => {
           if (!err) {
-            console.log('login form', values)
             const loginParams = { ...values }
             delete loginParams.username
             loginParams[!state.loginType ? 'email' : 'username'] = values.username
@@ -227,12 +231,10 @@ export default {
       })
     },
     loginSuccess (res) {
-      console.log(res)
       // check res.homePage define, set $router.push name res.homePage
       // Why not enter onComplete
       /*
       this.$router.push({ name: 'analysis' }, () => {
-        console.log('onComplete')
         this.$notification.success({
           message: '欢迎',
           description: `${timeFix()}，欢迎回来`
