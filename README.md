@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 English | [简体中文](./README.zh-CN.md)
 
 <h1 align="center">Ant Design Vue Pro</h1>
@@ -99,3 +100,7 @@ Modern browsers and IE10.
 
 This project exists thanks to all the people who contribute. 
 <a href="https://github.com/vueComponent/ant-design-vue-pro/graphs/contributors"><img src="https://opencollective.com/ant-design-pro-vue/contributors.svg?width=890&button=false" /></a>
+=======
+# h5-try
+this is a h5 website,it's my practise of vue.js and html5.
+>>>>>>> 5029246d6f9f61e37f20e41a01150175aec4a064
