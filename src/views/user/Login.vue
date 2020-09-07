@@ -136,6 +136,7 @@ export default {
       // this.form.resetFields()
     },
     handleSubmit (e) {
+      e.preventDefault()
       console.log('获取验证码--------', this.customActiveKey)
       let vertify = this.$refs.vertifyCode.checkInput();
       if (this.customActiveKey == 'tab1') {
@@ -149,7 +150,6 @@ export default {
         vertify = 1
       }
       if (vertify == 1) {
-        e.preventDefault()
         const {
           form: { validateFields },
           state,
