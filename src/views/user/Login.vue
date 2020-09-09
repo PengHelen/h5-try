@@ -22,13 +22,13 @@
             </a-input-password>
           </a-form-item>
 
-          <!-- <a-form-item>
-            <image-captcha ref="vertifyCode" :width="100" :height="38"></image-captcha>
-          </a-form-item> -->
-
           <a-form-item>
-            <slide-captcha status="status"></slide-captcha>
+            <image-captcha ref="vertifyCode" :width="100" :height="38"></image-captcha>
           </a-form-item>
+
+          <!-- <a-form-item> 
+            <slide-captcha status="status"></slide-captcha>
+          </a-form-item> -->
 
         </a-tab-pane>
         <a-tab-pane key="tab2" tab="手机号登录">
