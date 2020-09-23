@@ -20,6 +20,7 @@ import './core/lazy_use'
 import './permission' // permission control
 import './utils/filter' // global filter
 import './global.less'
+import echarts from 'echarts'
 
 Vue.config.productionTip = false
 
@@ -29,7 +30,7 @@ Vue.component('pro-layout', ProLayout)
 Vue.component('page-header-wrapper', PageHeaderWrapper)
 
 window.umi_plugin_ant_themeVar = themePluginConfig.theme
-
+Vue.prototype.$echarts = echarts
 new Vue({
   router,
   store,
